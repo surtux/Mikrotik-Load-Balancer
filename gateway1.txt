@@ -1,0 +1,50 @@
+:local host1 8.8.8.8
+:local g1loss
+:local g1received
+:local reachibility true
+:global reachibility1
+:local count 60
+:local seuil 25
+:local id40
+:local id42
+:local id43
+:local id44
+:local id30
+:local id31
+:local id32
+:local id33
+:local id34
+:local id35
+:local id20
+:local id21
+:local id22
+:local id23
+:local id10
+:local idpbr1
+:local idpbr2
+
+:set id40 [ip route find where comment="default40"]
+:set id42 [ip route find where comment="default42"]
+:set id43 [ip route find where comment="default43"]
+:set id44 [ip route find where comment="default44"]
+:set id30 [ip route find where comment="default30"]
+:set id31 [ip route find where comment="default31"]
+:set id32 [ip route find where comment="default32"]
+:set id33 [ip route find where comment="default33"]
+:set id34 [ip route find where comment="default34"]
+:set id35 [ip route find where comment="default35"]
+:set id20 [ip route find where comment="default20"]
+:set id21 [ip route find where comment="default21"]
+:set id22 [ip route find where comment="default22"]
+:set id23 [ip route find where comment="default23"]
+:set id10 [ip route find where comment="default10"]
+:set idpbr1 [ip route find where comment="Administration"]
+:set idpbr2 [ip route find where comment="HALL PISTI + 3IAC"]
+:set g1received [ping count=$count $host1]
+:set g1loss ($count-$g1received)
+
+:if (g1loss>seuil) do={:set reachibility false}
+:if (reachibility=false) do={:do {ip route disable $idpbr1;} on-error={:log info "Peux pas desactiver PBR1"};:do {ip route disable $idpbr2;} on-error={:log info "Peux pas desactiver PBR2"};:do {ip route set distance=10 $id40;} on-error={:log info "Peux pas augmenter la distance de 40"};:do {ip route set distance=10 $id42;} on-error={:log info "42 inflotable"};:do {ip route set distance=10 $id43;} on-error={:log info "43 inflotable"};:do {ip route set distance=10 $id44;} on-error={:log info "44 inflotable"};:do {ip route set distance=10 $id30;} on-error={:log info "30 inflotable"};:do {ip route set distance=10 $id31;} on-error={:log info "31 inflotable"};:do {ip route set distance=10 $id32;} on-error={:log info "32 inflotable"};:do {ip route set distance=10 $id33;} on-error={:log info "33 inflotable"};:do {ip route set distance=10 $id34;} on-error={:log info "34 inflotable"};:do {ip route set distance=10 $id35;} on-error={:log info "35 inflotable"};:do {ip route set distance=10 $id20;} on-error={:log info "20 inflotable"};:do {ip route set distance=10 $id21;} on-error={:log info "21 inflotable"};:do {ip route set distance=10 $id22;} on-error={:log info "22 inflotable"};:do {ip route set distance=10 $id23;} on-error={:log info "23 inflotable"};:do {ip route set distance=10 $id10;} on-error={:log info "10 inflotable"}}
+:if (reachibility=true) do={:do {ip route enable $idpbr1;} on-error={:log info "pbr1 inactivable"};:do {ip route enable $idpbr2;} on-error={:log info "pbr2 inactivable"};:do {ip route set distance=5 $id40;} on-error={:log info "40 non retabli"};:do {ip route set distance=5 $id42;} on-error={:log info "42 non retabli"};:do {ip route set distance=5 $id43;} on-error={:log info "43 non retabli"};:do {ip route set distance=5 $id44;} on-error={:log info "44 non retabli"};:do {ip route set distance=5 $id30;} on-error={:log info "30 non retabli"};:do {ip route set distance=5 $id31;} on-error={:log info "31 non retabli"};:do {ip route set distance=5 $id32;} on-error={:log info "32 non retabli"};:do {ip route set distance=5 $id33;} on-error={:log info "33 non retabli"};:do {ip route set distance=5 $id34;} on-error={:log info "34 no retabli"};:do {ip route set distance=5 $id35;} on-error={:log info "35 non retabli"};:do {ip route set distance=5 $id20;} on-error={:log info "20 non retabli"};:do {ip route set distance=5 $id21;} on-error={:log info "21 non retabli"};:do {ip route set distance=5 $id22;} on-error={:log info "22 non retabli"};:do {ip route set distance=5 $id23;} on-error={:log info "23 non retabli"};:do {ip route set distance=5 $id10;} on-error={:log info "10 non retabli"}}
+:if (reachibility=true) do={:do {:set reachibility1 true;} on-error={:log info "peux pas modifier reach1"};:log info "jai fini reach11"}
+:if (reachibility=false) do={:do {:set reachibility1 false;} on-error={:log info "pb modif reach1"};:log info "jai fini reach1"}

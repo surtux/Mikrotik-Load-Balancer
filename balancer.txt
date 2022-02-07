@@ -1,0 +1,101 @@
+:global reachibility1
+:global reachibility2
+:global reachibility3
+:global reachibility4
+:global reachibility5
+:local G1 192.168.220.1
+:local G2 192.168.200.1
+:local G3 192.168.210.1
+:local G4 192.168.215.1
+:local G5 192.168.205.1
+:local default5
+:local default40
+:local default41
+:local default42
+:local default43
+:local default44
+:local default30
+:local default31
+:local default32
+:local default33
+:local default34
+:local default35
+:local default36
+:local default37
+:local default38
+:local default39
+:local default20
+:local default21
+:local default22
+:local default23
+:local default24
+:local default25
+:local default26
+:local default27
+:local default28
+:local default29
+:local default10
+:local default11
+:local default12
+:local default13
+:local default14
+
+:set default5 [ip route find where comment="default5"]
+:set default40 [ip route find where comment="default40"]
+:set default41 [ip route find where comment="default41"]
+:set default42 [ip route find where comment="default42"]
+:set default43 [ip route find where comment="default43"]
+:set default44 [ip route find where comment="default44"]
+:set default30 [ip route find where comment="default30"]
+:set default31 [ip route find where comment="default31"]
+:set default32 [ip route find where comment="default32"]
+:set default33 [ip route find where comment="default33"]
+:set default34 [ip route find where comment="default34"]
+:set default35 [ip route find where comment="default35"]
+:set default36 [ip route find where comment="default36"]
+:set default37 [ip route find where comment="default37"]
+:set default38 [ip route find where comment="default38"]
+:set default39 [ip route find where comment="default39"]
+:set default20 [ip route find where comment="default20"]
+:set default21 [ip route find where comment="default21"]
+:set default22 [ip route find where comment="default22"]
+:set default23 [ip route find where comment="default23"]
+:set default24 [ip route find where comment="default24"]
+:set default25 [ip route find where comment="default25"]
+:set default26 [ip route find where comment="default26"]
+:set default27 [ip route find where comment="default27"]
+:set default28 [ip route find where comment="default28"]
+:set default29 [ip route find where comment="default29"]
+:set default10 [ip route find where comment="default10"]
+:set default11 [ip route find where comment="default11"]
+:set default12 [ip route find where comment="default12"]
+:set default13 [ip route find where comment="default13"]
+:set default14 [ip route find where comment="default14"]
+
+
+:if (reachibility1=true and reachibility2=true and reachibility3=true and reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default5;} on-error={:log info "defautl5 inactivable"}}
+:if (reachibility1=true and reachibility2=true and reachibility3=true and reachibility4=true) do={:do {ip route set distance=1 $default40;} on-error={:log info "default40 inactivable"}}
+:if (reachibility2=true and reachibility3=true and reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default41;} on-error={:log info "default41 inactivable"}}
+:if (reachibility3=true and reachibility4=true and reachibility5=true and reachibility1=true) do={:do {ip route set distance=1 $default42;} on-error={:log info "default42 inactivable"}}
+:if (reachibility1=true and reachibility4=true and reachibility5=true and reachibility2=true) do={:do {ip route set distance=1 $default43;} on-error={:log info "default43 inactivable"}}
+:if (reachibility1=true and reachibility2=true and reachibility3=true and reachibility5=true) do={:do {ip route set distance=1 $default44;} on-error={:log info "default44 inactivatble"}}
+:if (reachibility1=true and reachibility2=true and reachibility3=true) do={:do {ip route set distance=1 $default30;} on-error={:log info "default30 inactivable"}}
+:if (reachibility1=true and reachibility2=true and reachibility4=true) do={:do {ip route set distance=1 $default31;} on-error={:log info "default31 inactivable"}}
+:if (reachibility1=true and reachibility2=true and reachibility5=true) do={:do {ip route set distance=1 $default32;} on-error={:log info "default32 inactivable"}}
+:if (reachibility1=true and reachibility3=true and reachibility5=true) do={:do {ip route set distance=1 $default33;} on-error={:log info "default33 inactivable"}}
+:if (reachibility1=true and reachibility3=true and reachibility4=true) do={:do {ip route set distance=1 $default34;} on-error={:log info "default34 inactivable"}}
+:if (reachibility1=true and reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default35;} on-error={:log info "default35 inactivable"}}
+:if (reachibility2=true and reachibility3=true and reachibility4=true) do={:do {ip route set distance=1 $default36;} on-error={:log info "default36 inactivable"}}
+:if (reachibility2=true and reachibility3=true and reachibility5=true) do={:do {ip route set distance=1 $default37;} on-error={:log info "default37 inactivable"}}
+:if (reachibility2=true and reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default38;} on-error={:log info "default38 inactivable"}}
+:if (reachibility3=true and reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default39;} on-error={:log info "default39 inactivable"}}
+:if (reachibility1=true and reachibility2=true) do={:do {ip route set distance=1 $default20;} on-error={:log info "default20 inactivable"}}
+:if (reachibility1=true and reachibility3=true) do={:do {ip route set distance=1 $default21;} on-error={:log info "default21 inactivable"}}
+:if (reachibility1=true and reachibility4=true) do={:do {ip route set distance=1 $default22;} on-error={:log info "default22 inactivable"}}
+:if (reachibility1=true and reachibility5=true) do={:do {ip route set distance=1 $default23;} on-error={:log info "default23 inactivable"}}
+:if (reachibility2=true and reachibility3=true) do={:do {ip route set distance=1 $default24;} on-error={:log info "default24 inactivable"}}
+:if (reachibility2=true and reachibility4=true) do={:do {ip route set distance=1 $default25;} on-error={:log info "default25 inactivable"}}
+:if (reachibility2=true and reachibility5=true) do={:do {ip route set distance=1 $default26;} on-error={:log info "default26 inactivable"}}
+:if (reachibility3=true and reachibility4=true) do={:do {ip route set distance=1 $default27;} on-error={:log info "default27 inactivable"}}
+:if (reachibility3=true and reachibility5=true) do={:do {ip route set distance=1 $default28;} on-error={:log info "default28 inactivable"}}
+:if (reachibility4=true and reachibility5=true) do={:do {ip route set distance=1 $default29;} on-error={:log info "default29 inactivable"}}
