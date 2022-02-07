@@ -1,10 +1,18 @@
+#Cette adresse doit être celle d'un hôte acessible depuis internet. 
 :local host1 8.8.8.8
+#Cette variable permet de stocker la quantité de Ping perdu
 :local g1loss
+#Cette variable stocke la quantité de ping réussi
 :local g1received
+#Cette variable booléene renvoi vrai si l hote host1 est accessible a partir de ce FAI
 :local reachibility true
+#Cette variable permet de stocker globalement l'état de l'accessibilité de la passerelle pour le second script balancer
 :global reachibility1
+#Le nombre de requete ping total qui sera envoye par notre Mikrotik 
 :local count 60
+#Permet de définir le seuil de tolérance de perte pour lequel on devra décider de ne plus utiliser ce FAI
 :local seuil 25
+
 :local id40
 :local id42
 :local id43
