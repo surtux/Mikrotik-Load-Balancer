@@ -12,7 +12,7 @@
 :local count 60
 #Permet de définir le seuil de tolérance de perte pour lequel on devra décider de ne plus utiliser ce FAI
 :local seuil 25
-
+#Les variables suivantes seront utilisées pour manipuler les routes de la table de routage
 :local id40
 :local id42
 :local id43
@@ -31,6 +31,7 @@
 :local idpbr1
 :local idpbr2
 
+#Ici  on affecte les valeurs des routes de notre table de routage aux variables déclarées plus haut
 :set id40 [ip route find where comment="default40"]
 :set id42 [ip route find where comment="default42"]
 :set id43 [ip route find where comment="default43"]
@@ -48,7 +49,10 @@
 :set id10 [ip route find where comment="default10"]
 :set idpbr1 [ip route find where comment="Administration"]
 :set idpbr2 [ip route find where comment="HALL PISTI + 3IAC"]
+
+#La variable g1received contient le nombre de requete ping reussi
 :set g1received [ping count=$count $host1]
+#La variable g1loss contient la quantite de ping qui ont echoue
 :set g1loss ($count-$g1received)
 
 :if (g1loss>seuil) do={:set reachibility false}
